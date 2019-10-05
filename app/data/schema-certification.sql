@@ -1,4 +1,4 @@
-USE msis_triage;
+USE msis_project;
 
 CREATE TABLE Certification (
     certificationId VARCHAR(64) PRIMARY KEY,
