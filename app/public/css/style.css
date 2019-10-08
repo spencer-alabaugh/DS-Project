@@ -30,3 +30,21 @@
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
 }
+
+#welcome {
+  margin: auto;
+  text-align: center;
+  font-size: 35px;
+  padding: 10px 0px;
+
+}
+
+#box {
+  border: 1px solid black;
+  margin: 10px;
+  height: 300px;
+}
+
+.row {
+  padding: 5px;
+}
