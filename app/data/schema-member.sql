@@ -1,7 +1,7 @@
 USE msis_project;
 
 CREATE TABLE Member (
-    memberId VARCHAR(64) PRIMARY KEY AUTO_INCREMENT,
+    memberId INT AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(64) NOT NULL,
     lastName VARCHAR(64) NOT NULL,
     radioNumber VARCHAR(64),
@@ -10,5 +10,5 @@ CREATE TABLE Member (
     address VARCHAR(64),
     email VARCHAR(64),
     gender CHAR(1),
-    position VARCHAR(64),
+    position VARCHAR(64)
 );
