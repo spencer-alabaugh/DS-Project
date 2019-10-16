@@ -53,13 +53,41 @@
             <td>{{member.radioNumber}}</td>
             <td>{{member.stationNumber}}</td>
             <td>{{member.active}}</td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+            <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
             <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
         </tbody>
       </table>
-      <form><button id="button" type="submit" class="btn btn-primary">Add member</button></form>
     </div>
+  </div>
+</div>
+
+      <div id="newMem" class="container">
+
+      <form>
+      <button id="button" type="button" class="btn btn-primary" onclick="myFunction()">Add member</button></form>
+    <div class="card mb-3"
+    v-for="(newMember) in newMembers">
+      <div id="myDIV" class="card-body">
+        <span class="float-right" style="cursor:pointer">
+      x
+       </span>
+    <h4 class="card-title"> Add New Member</h4>
+    <div class="employee-form">
+      <input type="text" class="form-control mb-2" placeholder="First Name"
+      v-model="newMember.first">
+      <input type="text" class="form-control mb-2" placeholder="Last Name"
+      v-model="newMember.last">
+      <input type="text" class="form-control mb-2" placeholder="Radio Number"
+      v-model="newMember.radio">
+      <input type="text" class="form-control mb-2" placeholder="Active?"
+      v-model="newMember.yesno">
+    </div>
+    </div>
+  </div>
+</div>
+
+
     <div class="col-sm-12 col-md-12 col-lg-12">
       <h2>Certifications</h2>
       <table id="taskTable" class="table">
@@ -77,7 +105,7 @@
           <td>Certification1</td>
           <td>Agency1</td>
           <td>5</td>
-          <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+          <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
           <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
         </tr>
         <tr>
@@ -85,14 +113,14 @@
           <td>Certification2</td>
           <td>Agency2</td>
           <td>10</td>
-          <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+          <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
           <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
         </tr>
         <tr>
           <td>Certification3</td>
           <td>Agency3</td>
           <td>15</td>
-          <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+          <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
           <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
         </tr>
         <tr>
@@ -100,7 +128,7 @@
           <td>Certification4</td>
           <td>Agency4</td>
           <td>20</td>
-          <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+          <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
           <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
         </tr>
         <tr>

@@ -31,3 +31,29 @@ var mambersApp = new Vue({
       }]
   }
 })
+
+var newMember = new Vue({
+el: "#newMem",
+data:
+{
+  newMembers:
+   [
+    {
+      first:'Luis',
+      last:'',
+      radio:'',
+      station:'',
+      yesno:''
+    }
+  ]
+}
+})
+
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
