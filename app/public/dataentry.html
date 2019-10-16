@@ -28,7 +28,7 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
+      <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12">
         <h2>Members</h2>
         <table id="taskTable" class="table">
         <thead class="thead-light">
@@ -43,45 +43,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td >Aanchal</td>
-            <td>Wadhwani</td>
-            <td>R1</td>
-            <td>S1</td>
-            <td>yes</td>
+          <tr v-for="member in members">
+            <td>{{member.firstName}}</td>
+            <td>{{member.lastName}}</td>
+            <td>{{member.radioNumber}}</td>
+            <td>{{member.stationNumber}}</td>
+            <td>{{member.active}}</td>
             <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
             <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
-          <tr>
-          <tr>
-            <td>Saharsh</td>
-            <td>Arora</td>
-            <td>R2</td>
-            <td>S2</td>
-            <td>yes</td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
-          </tr>
-          <tr>
-            <td>Apencer</td>
-            <td>Alabaugh</td>
-            <td>R3</td>
-            <td>S3</td>
-            <td>yes</td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
-          </tr>
-          <tr>
-          <tr>
-            <td>Luis</td>
-            <td>Cervantes</td>
-            <td>R4</td>
-            <td>S4</td>
-            <td>yes</td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
-            <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
-          </tr>
-          <tr>
         </tbody>
       </table>
       <form><button id="button" type="submit" class="btn btn-primary">Add member</button></form>
@@ -139,5 +109,7 @@
 <div class="footer">
   Oconee County Fire Rescue|Oconee County, GA
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/members.app.js"></script>
 </body>
 </html>
