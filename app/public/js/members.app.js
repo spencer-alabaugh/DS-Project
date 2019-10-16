@@ -39,7 +39,7 @@ data:
   newMembers:
    [
     {
-      first:'Luis',
+      first:'',
       last:'',
       radio:'',
       station:'',
