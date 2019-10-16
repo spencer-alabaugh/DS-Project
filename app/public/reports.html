@@ -39,6 +39,16 @@
   </nav>
 
   <h2>Expired Certifications</h2>
+  <div class="filter">
+    <select v-model="filter.sab">
+      <option value="">(all)</option>
+      <option>AED</option>
+      <option>First Aid</option>
+      <option>CPR</option>
+      <option>EMT</option>
+
+    </select>
+  </div>
     <table class="table table-sm table-hover">
     <thead>
       <tr class = "tablerow">
@@ -47,7 +57,6 @@
         <th>Certifcation</th>
         <th>Certifying Agency</th>
         <th>Expiration Date</th>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for certifications..">
       </thead>
         <!-- <tr class="header">
           <th style="width:60%;">Name</th>
