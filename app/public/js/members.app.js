@@ -1,4 +1,4 @@
-var mambersApp = new Vue({
+var membersApp = new Vue({
   el: '#membersApp',
   data: {
     members:  [{
