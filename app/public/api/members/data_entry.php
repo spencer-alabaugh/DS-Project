@@ -4,7 +4,7 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('SELECT firstName, lastName, radioNumber, stationNumber, isActive FROM Member');
+$stmt = $db->prepare('SELECT * FROM Member');
 $stmt->execute();
 $members = $stmt->fetchAll();
 

@@ -6,7 +6,7 @@ CREATE TABLE Member (
     lastName VARCHAR(64) NOT NULL,
     radioNumber VARCHAR(64),
     stationNumber VARCHAR(64),
-    isActive Boolean,
+    isActive VARCHAR(5),
     address VARCHAR(64),
     email VARCHAR(64),
     gender CHAR(1),
@@ -15,7 +15,7 @@ CREATE TABLE Member (
 
 ------------------------------------------------------------------------------
 
-use innodb;
+use t20;
 
 INSERT INTO Member(firstName, lastName, radioNumber, stationNumber, isActive, address, email, gender, position) VALUES
 ("Spencer", "Alabaugh", 123123123, 123456789, TRUE, "123 Boring Street", "spenceristhebest@awesomeness.com", "M", "Chief"),
