@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,15 +41,15 @@
 
   <h2>Expired Certifications</h2>
   <div class="filter">
-    <select v-model="filter.sab">
-      <option value="">(all)</option>
-      <option>AED</option>
-      <option>First Aid</option>
-      <option>CPR</option>
-      <option>EMT</option>
-
+    <select v-model="filter.certName">
+      <option value=''>(all)</option>
+      <option value='AED'>AED</option>
+      <option value='First Aid'>First Aid</option>
+      <option value='CPR'>CPR</option>
+      <option value='EMT'>EMT</option>
     </select>
-  </div>
+
+  <div id="expiredCertificationApp">
     <table class="table table-sm table-hover">
     <thead>
       <tr class = "tablerow">
@@ -56,44 +57,22 @@
         <th>Last Name</th>
         <th>Certifcation</th>
         <th>Certifying Agency</th>
-        <th>Expiration Date</th>
+        <th>Expiration Date (YYYY-MM-DD)</th>
       </thead>
-        <!-- <tr class="header">
-          <th style="width:60%;">Name</th>
-          <th style="width:40%;">Country</th>
-        </tr> -->
+
       <tbody>
-        <tr>
-          <td>Saharsh</td>
-          <td>Arora</td>
-          <td>First Aid</td>
-          <td>American Heart Association</td>
-          <td>11-12-2020</td>
-        </tr>
-        <tr>
-          <td>Spencer</td>
-          <td>Alabaugh</td>
-          <td>AED</td>
-          <td>American Red Cross</td>
-          <td>12-08-2020</td>
-        </tr>
-        <tr>
-          <td>Aanchal</td>
-          <td>Wadhwani</td>
-          <td>EMT</td>
-          <td>National Registry of Emergency Medical Technicians</td>
-          <td>07-26-2020</td>
-        </tr>
-        <tr>
-          <td>Luis</td>
-          <td>Cervantes</td>
-          <td>CPR</td>
-          <td>American Red Cross</td>
-          <td>03-06-2020</td>
+        <tr v-for="certification in certifications" @click="handleRowClick(certification)"
+        v-if="filter.certName =='' || filter.certName == certification.certificationName">
+          <td>{{certification.firstName}}</td>
+          <td>{{certification.lastName}}</td>
+          <td>{{certification.certificationName}}</td>
+          <td>{{certification.certifyingAgency}}</td>
+          <td>{{certification.expirationDate}}</td>
         </tr>
       </tbody>
       </table>
-
+</div>
+<div id="membersApp">
       <h2>Member's List</h2>
       <table class="table table-sm table-hover">
         <thead class = "tablerow">
@@ -104,29 +83,21 @@
           <th>Email Address</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Spencer</td>
-            <td>Alabaugh</td>
-            <td>5673</td>
-            <td>560345</td>
-            <td>spencer@saharsh.com</td>
+          <tr v-for="member in members">
+            <td>{{member.firstName}}</td>
+            <td>{{member.lastName}}</td>
+            <td>{{member.stationNumber}}</td>
+            <td>{{member.radioNumber}}</td>
+            <td>{{member.email}}</td>
           </tr>
-          <tr>
-            <td>Aanchal</td>
-            <td>Wadhwani</td>
-            <td>9876</td>
-            <td>567083</td>
-            <td>aanchal@saharsh.com</td>
-          </tr>
-          <tr>
-            <td>Luis</td>
-            <td>Cervantes</td>
-            <td>42500</td>
-            <td>690960</td>
-            <td>saharsh@saharsh.com</td>
-          </tr>
+
         </tbody>
       </table>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/expiredCertifications.app.js"></script>
+    <script src="js/members.app.js"></script>
 
 </body>
 

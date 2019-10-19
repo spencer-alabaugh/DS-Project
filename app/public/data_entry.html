@@ -30,6 +30,7 @@
       </ul>
     </div>
   </nav>
+
   <div class="container">
     <div class="row">
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12">
@@ -52,13 +53,19 @@
             <td>{{member.lastName}}</td>
             <td>{{member.radioNumber}}</td>
             <td>{{member.stationNumber}}</td>
+<<<<<<< HEAD
             <td>{{member.active}}</td>
             <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
+=======
+            <td>{{member.isActive}}</td>
+            <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+>>>>>>> master
             <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
         </tbody>
       </table>
     </div>
+<<<<<<< HEAD
   </div>
 </div>
 
@@ -89,18 +96,25 @@
 
 
     <div class="col-sm-12 col-md-12 col-lg-12">
+=======
+
+
+    <div id = certificationApp class="col-sm-12 col-md-12 col-lg-12">
+>>>>>>> master
       <h2>Certifications</h2>
       <table id="taskTable" class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Name</th>
+          <th scope="col">Certification</th>
           <th scope="col">Certifying agency</th>
-          <th scope="col">Expiration period (in years)</th>
+          <th scope="col">Certification period</th>
+          <th scope="col">Certifying Agency</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
+<<<<<<< HEAD
         <tr>
           <td>Certification1</td>
           <td>Agency1</td>
@@ -129,6 +143,14 @@
           <td>Agency4</td>
           <td>20</td>
           <td><form><button id="eButton" type="submit" class="btn btn-primary">Edit</button></form></td>
+=======
+        <tr  v-for="certification in certifications">
+          <td>{{ certification.certificationId }}</td>
+          <td>{{ certification.certificationName }}</td>
+          <td>{{ certification.experationPeriod }}</td>
+          <td>{{ certification.certifyingAgency }}</td>
+          <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
+>>>>>>> master
           <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
         </tr>
         <tr>
@@ -136,6 +158,7 @@
     </table>
     <form><button id="button" type="submit" class="btn btn-primary">Add certification</button></form>
   </div>
+
   </div>
 </div>
 <div class="footer">
@@ -143,5 +166,6 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/members.app.js"></script>
+<script src="js/certifications.app.js"></script>
 </body>
 </html>
