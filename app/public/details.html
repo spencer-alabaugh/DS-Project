@@ -34,7 +34,7 @@
   <div class="container">
     <div class="row">
       <div id = "membersCertifiedApp" class="col-sm-12 col-md-12 col-lg-12">
-        <h2>Members and certifications</h2>
+        <h2>Active Members: Current and Expired Certifications</h2>
         <table id="taskTable" class="table">
         <thead class="thead-light">
           <tr>
@@ -44,6 +44,7 @@
             <th scope="col">Station number</th>
             <th scope="col">Active (yes/no?)</th>
             <th scope="col">Certifications</th>
+            <th scope="col">Expiration Date</th>
           </tr>
         </thead>
         <tbody>
@@ -54,58 +55,45 @@
             <td>{{m.stationNumber}}</td>
             <td>{{m.isActive}}</td>
             <td>{{m.certificationName}}</td>
+            <td>{{m.expirationDate}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <h2>Certifications and certified members</h2>
+
+
+    <div id = "certificationsMemberApp" class="col-sm-12 col-md-12 col-lg-12">
+      <h2>All Members: Certifications and Certification Expiration Period</h2>
       <table id="taskTable" class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Certifying agency</th>
-          <th scope="col">Expiration period (in years)</th>
-          <th scope="col">Members</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Certification</th>
+          <th scope="col">Expiration Period</th>
+          <th scope="col">Is Active</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Certification1</td>
-          <td>Agency1</td>
-          <td>5</td>
-          <td>Aanchal, John (not active)</td>
+        <tr v-for="m in certificationsMember">
+          <td>{{m.lastName}}</td>
+          <td>{{m.firstName}}</td>
+          <td>{{m.certificationName}}</td>
+          <td>{{m.experationPeriod}}</td>
+          <td>{{m.isActive}}</td>
         </tr>
-        <tr>
-        <tr>
-          <td>Certification2</td>
-          <td>Agency2</td>
-          <td>10</td>
-          <td>Saharsh, Tim (not active)</td>
-        </tr>
-        <tr>
-          <td>Certification3</td>
-          <td>Agency3</td>
-          <td>15</td>
-          <td>Spencer, James (not active)</td>
-        </tr>
-        <tr>
-        <tr>
-          <td>Certification4</td>
-          <td>Agency4</td>
-          <td>20</td>
-          <td>Luis, Jack (not active)</td>
-        </tr>
-        <tr>
       </tbody>
     </table>
   </div>
   </div>
 </div>
+
+
 <div class="footer">
   Oconee County Fire Rescue|Oconee County, GA
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/membersCertified.app.js"></script>
+<script src="js/certificationsMember.app.js"></script>
 </body>
 </html>
