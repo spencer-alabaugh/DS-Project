@@ -41,12 +41,12 @@
 
   <h2>Expired Certifications</h2>
   <div class="filter">
-    <select v-model="filter.sab">
-      <option value="">(all)</option>
-      <option>AED</option>
-      <option>First Aid</option>
-      <option>CPR</option>
-      <option>EMT</option>
+    <select v-model="filter.certName">
+      <option value=''>(all)</option>
+      <option value='AED'>AED</option>
+      <option value='First Aid'>First Aid</option>
+      <option value='CPR'>CPR</option>
+      <option value='EMT'>EMT</option>
     </select>
 
   <div id="expiredCertificationApp">
@@ -57,11 +57,12 @@
         <th>Last Name</th>
         <th>Certifcation</th>
         <th>Certifying Agency</th>
-        <th>Expiration Date</th>
+        <th>Expiration Date (YYYY-MM-DD)</th>
       </thead>
 
       <tbody>
-        <tr v-for="certification in certifications">
+        <tr v-for="certification in certifications" @click="handleRowClick(certification)"
+        v-if="filter.certName =='' || filter.certName == certification.certificationName">
           <td>{{certification.firstName}}</td>
           <td>{{certification.lastName}}</td>
           <td>{{certification.certificationName}}</td>
@@ -71,6 +72,7 @@
       </tbody>
       </table>
 </div>
+<div id="membersApp">
       <h2>Member's List</h2>
       <table class="table table-sm table-hover">
         <thead class = "tablerow">
@@ -81,31 +83,21 @@
           <th>Email Address</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Spencer</td>
-            <td>Alabaugh</td>
-            <td>5673</td>
-            <td>560345</td>
-            <td>spencer@saharsh.com</td>
+          <tr v-for="member in members">
+            <td>{{member.firstName}}</td>
+            <td>{{member.lastName}}</td>
+            <td>{{member.stationNumber}}</td>
+            <td>{{member.radioNumber}}</td>
+            <td>{{member.email}}</td>
           </tr>
-          <tr>
-            <td>Aanchal</td>
-            <td>Wadhwani</td>
-            <td>9876</td>
-            <td>567083</td>
-            <td>aanchal@saharsh.com</td>
-          </tr>
-          <tr>
-            <td>Luis</td>
-            <td>Cervantes</td>
-            <td>42500</td>
-            <td>690960</td>
-            <td>saharsh@saharsh.com</td>
-          </tr>
+
         </tbody>
       </table>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/expiredCertifications.app.js"></script>
+    <script src="js/members.app.js"></script>
 
 </body>
 

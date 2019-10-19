@@ -3,7 +3,7 @@ var expiredCertificationApp = new Vue({
   data: {
     certifications: [],
     filter: {
-      sab: ''
+      certName: ''
     }
   },
   methods: {
