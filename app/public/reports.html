@@ -40,16 +40,18 @@
   </nav>
 
   <h2>Expired Certifications</h2>
-  <div class="filter">
-    <select v-model="filter.certName">
-      <option value=''>(all)</option>
-      <option value='AED'>AED</option>
-      <option value='First Aid'>First Aid</option>
-      <option value='CPR'>CPR</option>
-      <option value='EMT'>EMT</option>
-    </select>
+
 
   <div id="expiredCertificationApp">
+    <div class="filter">
+      <select v-model="filter.certName">
+        <option value=''>(all)</option>
+        <option value='AED'>AED</option>
+        <option value='First Aid'>First Aid</option>
+        <option value='CPR'>CPR</option>
+        <option value='EMT'>EMT</option>
+      </select>
+    </div>
     <table class="table table-sm table-hover">
     <thead>
       <tr class = "tablerow">
@@ -62,7 +64,7 @@
 
       <tbody>
         <tr v-for="certification in certifications" @click="handleRowClick(certification)"
-        v-if="filter.certName =='' || filter.certName == certification.certificationName">
+        v-show="filter.certName =='' || filter.certName == certification.certificationName">
           <td>{{certification.firstName}}</td>
           <td>{{certification.lastName}}</td>
           <td>{{certification.certificationName}}</td>
