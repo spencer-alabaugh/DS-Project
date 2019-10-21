@@ -30,49 +30,62 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
     <div class="row">
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12">
         <h2>Members</h2>
         <table id="taskTable" class="table">
         <thead class="thead-light">
           <tr>
+            <th scope="col">Member ID</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
-            <th scope="col">Radio numbers</th>
+            <th scope="col">Radio number</th>
             <th scope="col">Station number</th>
             <th scope="col">Active (yes/no?)</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Position</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="member in members">
+          <tr v-for="member in members" @click="handleRowClick(member)">
+            <td>{{member.memberId}}</td>
             <td>{{member.firstName}}</td>
             <td>{{member.lastName}}</td>
             <td>{{member.radioNumber}}</td>
             <td>{{member.stationNumber}}</td>
             <td>{{member.isActive}}</td>
+            <td>{{member.address}}</td>
+            <td>{{member.email}}</td>
+            <td>{{member.gender}}</td>
+            <td>{{member.position}}</td>
             <td><form><button id="button" type="submit" class="btn btn-primary">Edit</button></form></td>
             <td><form><button id="button" type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div id="newMemberApp" class="container">
-      <form>
-        <button id="button" type="button" class="btn btn-primary" onclick="myFunction()">Add member</button>
-        <div class="card mb-3" v-for="newMember in newMembers">
+      <form><button id="button" type="button" class="btn btn-primary" onclick="myFunction()">Add member</button></form>
+      <form @submit.prevent="handleSubmit">
+        <div class="card mb-3" >
           <div id="myDIV" class="card-body" style="display:none">
             <span class="float-right" style="cursor:pointer"></span>
             <h4 class="card-title"> Add New Member</h4>
             <div class="employee-form">
-              <input type="text" class="form-control mb-2" placeholder="First Name" v-model="newMember.first">
-              <input type="text" class="form-control mb-2" placeholder="Last Name" v-model="newMember.last">
-              <input type="text" class="form-control mb-2" placeholder="Radio Number" v-model="newMember.radio">
-              <input type="text" class="form-control mb-2" placeholder="Active?" v-model="newMember.yesno">
+              <input type="text" class="form-control mb-2" placeholder="First Name" v-model="newMember.firstName" >
+              <input type="text" class="form-control mb-2" placeholder="Last Name" v-model="newMember.lastName" >
+              <input type="text" class="form-control mb-2" placeholder="Radio Number" v-model="newMember.radioNumber" >
+              <input type="text" class="form-control mb-2" placeholder="Station Number" v-model="newMember.stationNumber" >
+              <input type="text" class="form-control mb-2" placeholder="Active?" v-model="newMember.isActive" >
+              <input type="text" class="form-control mb-2" placeholder="Address" v-model="newMember.address" >
+              <input type="text" class="form-control mb-2" placeholder="Email" v-model="newMember.email" >
+              <input type="text" class="form-control mb-2" placeholder="Gender" v-model="newMember.gender" >
+              <input type="text" class="form-control mb-2" placeholder="Position" v-model="newMember.position" >
+              <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-  </div>
+    </div>
   </div>
 </div>
 </div>
@@ -105,7 +118,7 @@
   </div>
 
   </div>
-</div>
+
 <div class="footer">
   Oconee County Fire Rescue|Oconee County, GA
 </div>
