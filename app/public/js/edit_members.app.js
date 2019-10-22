@@ -1,6 +1,7 @@
 var edit_membersApp = new Vue({
   el: '#edit_membersApp',
   data: {
+    members:  [],
     employee: {}
   },
   methods: {
@@ -13,7 +14,7 @@ var edit_membersApp = new Vue({
         }
       })
       .then( response => response.json() )
-      .then( json => {membersApp.members.push( json[0] ) })
+      .then( json => {edit_membersApp.members.push( json[0] ) })
       .catch( err => {
         console.error('MEMBER POST ERROR:');
         console.error(err);

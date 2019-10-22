@@ -11,7 +11,7 @@ var membersApp = new Vue({
       .then(json => {membersApp.members = json})
     },
     handleSubmit() {
-      fetch('api/members/certificationsPost.php', {
+      fetch('api/members/membersPost.php', {
         method:'POST',
         body: JSON.stringify(this.newMember),
         headers: {
@@ -36,7 +36,7 @@ var membersApp = new Vue({
     }
   },
   handleRowClick(member){
-    membersApp.member = member;
+    edit_membersApp.employee = member;
   }
 },
   created() {
@@ -45,7 +45,7 @@ var membersApp = new Vue({
   }
 })
 
-function myFunction() {
+function addFunction() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
     x.style.display = "block";
