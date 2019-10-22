@@ -47,7 +47,6 @@
             <th scope="col">Email</th>
             <th scope="col">Gender</th>
             <th scope="col">Position</th>
-            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +63,6 @@
               <td>{{member.email}}</td>
               <td>{{member.gender}}</td>
               <td>{{member.position}}</td>
-              <td><button id="button" type="submit" class="btn btn-primary">Delete</button></td>
             </form>
           </div>
           </tr>
@@ -95,7 +93,6 @@
 </div>
 
     <div id="edit_membersApp">
-    <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div class="card-body">
           <span class="float-right" style="cursor:pointer"></span>
@@ -110,12 +107,11 @@
             <input type="text" class="form-control mb-2" placeholder="Email" v-model="employee.email" >
             <input type="text" class="form-control mb-2" placeholder="Gender" v-model="employee.gender" >
             <input type="text" class="form-control mb-2" placeholder="Position" v-model="employee.position" >
-            <button type="submit" class="btn btn-primary">Submit Edits</button>
-            <button type="submit" class="btn btn-primary">Delete Member</button>
+            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
+            <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Member</button></form>
           </div>
         </div>
       </div>
-    </form>
   </div>
 
 

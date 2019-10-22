@@ -1,7 +1,6 @@
 var edit_membersApp = new Vue({
   el: '#edit_membersApp',
   data: {
-    members:  [],
     employee: {}
   },
   methods: {
@@ -13,14 +12,31 @@ var edit_membersApp = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json() )
-      .then( json => {edit_membersApp.members.push( json[0] ) })
-      .catch( err => {
-        console.error('MEMBER POST ERROR:');
-        console.error(err);
-  });
+      // .then( response => response.json() )
+      // .then( json => {edit_membersApp.employee.push( json[0] ) })
+      // .catch( err => {
+      //   console.error('MEMBER POST ERROR:');
+      //   console.error(err);
+  // });
    this.handleReset();
   },
+
+  handleDelete() {
+    fetch('api/members/deletemembersPost.php', {
+      method:'POST',
+      body: JSON.stringify(this.employee),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+ this.handleReset();
+},
+
+
+
+
+
+
   handleReset() {
     this.employee = {
       firstName: '',
@@ -30,6 +46,9 @@ var edit_membersApp = new Vue({
       isActive: ''
     }
   },
+  handleRowClick(member){
+    edit_membersApp.employee = member;
+  }
 },
   created() {
   }
