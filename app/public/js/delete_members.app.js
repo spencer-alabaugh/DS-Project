@@ -1,19 +1,13 @@
-var membersApp = new Vue({
-  el: '#membersApp',
+var delete_membersApp = new Vue({
+  el: '#delete_membersApp',
   data: {
-    members:  [],
-    newMember: {}
+    employee: {}
   },
   methods: {
-    fetchMembers() {
-      fetch('api/members/data_entry.php')
-      .then(response => response.json())
-      .then(json => {membersApp.members = json})
-    },
     handleSubmit() {
-      fetch('api/members/membersPost.php', {
+      fetch('api/members/deletemembersPost.php', {
         method:'POST',
-        body: JSON.stringify(this.newMember),
+        body: JSON.stringify(this.employee),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -27,7 +21,7 @@ var membersApp = new Vue({
    this.handleReset();
   },
   handleReset() {
-    this.newMember = {
+    this.employee = {
       firstName: '',
       lastName: '',
       radioNumber: '',
@@ -35,21 +29,16 @@ var membersApp = new Vue({
       isActive: ''
     }
   },
-  handleRowClick(member){
-    edit_membersApp.employee = member;
-  }
 },
   created() {
-    this.fetchMembers();
-     this.handleReset();
   }
 })
 
-function addFunction() {
+/* function myFunction() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
-}
+}*/
