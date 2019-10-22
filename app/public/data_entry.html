@@ -114,7 +114,24 @@
         </tr>
       </tbody>
     </table>
-    <form><button id="button" type="submit" class="btn btn-primary">Add certification</button></form>
+    <form><button id="button" type="button" class="btn btn-primary" onclick="myFunction()">Add member</button></form>
+    <form @submit.prevent="handleSubmit">
+      <div class="card mb-3" >
+        <div id="myDIV" class="card-body" style="display:none">
+          <span class="float-right" style="cursor:pointer"></span>
+          <h4 class="card-title"> Add New Certificate</h4>
+          <div class="employee-form">
+            <input type="text" class="form-control mb-2" placeholder="First Name" v-model="newMember.firstName" >
+            <input type="text" class="form-control mb-2" placeholder="Last Name" v-model="newMember.lastName" >
+            <input type="text" class="form-control mb-2" placeholder="Radio Number" v-model="newMember.radioNumber" >
+            <input type="text" class="form-control mb-2" placeholder="Station Number" v-model="newMember.stationNumber" >
+            <input type="text" class="form-control mb-2" placeholder="Active?" v-model="newMember.isActive" >
+            <input type="text" class="form-control mb-2" placeholder="Address" v-model="newMember.address" >
+            <input type="text" class="form-control mb-2" placeholder="Email" v-model="newMember.email" >
+            <input type="text" class="form-control mb-2" placeholder="Gender" v-model="newMember.gender" >
+            <input type="text" class="form-control mb-2" placeholder="Position" v-model="newMember.position" >
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
 
   </div>
