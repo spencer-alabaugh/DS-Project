@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>DataEntry</title>
+  <title>AssignCertificate</title>
   <link rel="stylesheet" href="css\style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" href="reports.html">Reports</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="AssignCertificate.html">Assign Certificate</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -36,8 +39,8 @@
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12" >
         <h2>Assign certificate to member</h2>
           <p> Select member ID </p>
-          <select v-model="members.memberId" name="memberId">
-            <option  v-for="member in members">{{ member.memberId }}</option>
+          <select v-model="selectedMemberId" name="memberId" @change="getMemberbyId(selectedMemberId)" >
+            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }}</option>
           </select>
           <br>
           <table id="taskTable" class="table">
@@ -52,11 +55,11 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{members.memberId}}</td>
-              <td>{{members.lastName}}</td>
-              <td>{{members.radioNumber}}</td>
-              <td>{{members.stationNumber}}</td>
-              <td>{{members.isActive}}</td>
+              <td>{{fetchedMember.memberId}}</td>
+              <td>{{fetchedMember.lastName}}</td>
+              <td>{{fetchedMember.radioNumber}}</td>
+              <td>{{fetchedMember.stationNumber}}</td>
+              <td>{{fetchedMember.isActive}}</td>
           </tbody>
         </table>
       </div>
