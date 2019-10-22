@@ -39,10 +39,11 @@
     </div>
   </nav>
 
-  <h2>Expired Certifications</h2>
 
 
-  <div id="expiredCertificationApp">
+  <div id="expiredCertificationApp" class="container">
+    <h2>Expired Certifications</h2>
+
     <div class="filter">
       <select v-model="filter.certName">
         <option value=''>(all)</option>
@@ -53,7 +54,7 @@
       </select>
     </div>
     <table class="table table-sm table-hover">
-    <thead>
+    <thead class="thead-light">
       <tr class = "tablerow">
         <th>First Name</th>
         <th>Last Name</th>
@@ -74,10 +75,12 @@
       </tbody>
       </table>
 </div>
-<div id="membersApp">
+
+
+<div id="membersApp" class="container">
       <h2>Member's List</h2>
       <table class="table table-sm table-hover">
-        <thead class = "tablerow">
+        <thead class="thead-light">
           <th>First Name</th>
           <th>Last Name</th>
           <th>Station Number</th>
