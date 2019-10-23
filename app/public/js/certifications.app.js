@@ -28,13 +28,14 @@ var certificationApp = new Vue({
 },
 handleReset() {
   this.newCertification = {
+    certificationId: '',
     certificationName: '',
     experationPeriod: '',
     certifyingAgency: ''
   }
 },
-handleRowClick(member){
-  newCertificationApp.member = member;
+handleRowClick(certifications){
+  edit_certificateApp.certificate = certifications;
 }
 },
   created() {

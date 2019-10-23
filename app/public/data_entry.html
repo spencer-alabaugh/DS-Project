@@ -125,17 +125,18 @@
           <th scope="col">Certifying agency</th>
           <th scope="col">Certification period</th>
           <th scope="col">Certifying Agency</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr  v-for="certification in certifications">
+        <tr  v-for="certification in certifications" @click="handleRowClick(certification)">
+          <div id = "delete_certificationsApp">
+          <form>
           <td>{{ certification.certificationId }}</td>
           <td>{{ certification.certificationName }}</td>
           <td>{{ certification.experationPeriod }}</td>
           <td>{{ certification.certifyingAgency }}</td>
-          <td><form><button id="ebutton" type="submit" class="btn btn-primary">Edit</button></form></td>
+        </form>
+      </div>
         </tr>
       </tbody>
     </table>
@@ -156,6 +157,24 @@
 </div>
 </div>
 </div>
+
+<div id="edit_certificateApp">
+  <div class="card mb-4" >
+    <div class="card-body">
+      <span class="float-left" style="cursor:pointer"></span>
+      <h4 class="card-title">Edit Certification</h4>
+      <div>
+        <label>Entry</label><input type="text" class="form-control mb-3" placeholder="First Name" v-model="certificate.certificationId" >
+        <input type="text" class="form-control mb-3" placeholder="Certification Id" v-model="certificate.certificationName" >
+        <input type="text" class="form-control mb-3" placeholder="Radio Number" v-model="certificate.experationPeriod" >
+        <input type="text" class="form-control mb-3" placeholder="Station Number" v-model="certificate.certifyingAgency" >
+        <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
+        <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Member</button></form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="footer">
   Oconee County Fire Rescue|Oconee County, GA
 </div>
@@ -164,6 +183,9 @@
 <script src="js/certifications.app.js"></script>
 <script src="js/edit_members.app.js"></script>
 <script src="js/delete_members.app.js"></script>
+<script src="js/delete_certifications.app.js"></script>
+<script src="js/edit_certificate.app.js"></script>
+
 
 </body>
 </html>
