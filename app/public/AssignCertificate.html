@@ -36,25 +36,31 @@
   </nav>
 
   <div class="container">
+    <form @submit.prevent="handleSubmit">
     <div class="row">
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12" >
         <h2>Assign certificate to member</h2>
           <p> Select member ID </p>
-          <select v-model="selectedMemberId" name="memberId" @change="getMemberbyId(selectedMemberId)" >
-            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }} - {{ member.firstName }} {{ member.lastName }}</option>
+          <select name="memberId" >
+            <option v-for="member in members">{{ member.memberId }} - {{ member.firstName }} {{ member.lastName }}</option>
           </select>
           <br>
       </div>
 
-
       <div id="certificationApp" class="col-sm-12 col-md-12 col-lg-12" >
         <p> Select certification name </p>
-        <select v-model="certifications.certificationName" name="certificationName">
-          <option  v-for="certification in certifications" v:bind:value="certificationId">{{ certification.certificationId }} - {{ certification.certificationName }}</option>
+        <select name="certificationName">
+          <option  v-for="certification in certifications" >{{ certification.certificationId }} - {{ certification.certificationName }}</option>
         </select>
       </div>
+      <br>
+      <div>
+        <p>Select certification start date</p>
+        <input v-model="" type="date" name="certificationStartDate" >
+      </div>
   </div>
-  <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Certify Member</button></form>
+  <button type="submit" class="btn btn-primary">Certify Member</button>
+</form>
 </div>
 <div class="footer">
   Oconee County Fire Rescue|Oconee County, GA

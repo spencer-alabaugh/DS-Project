@@ -2,9 +2,7 @@ var membersApp = new Vue({
   el: '#membersApp',
   data: {
     members:  [],
-    newMember: {},
-    fetchedMember: {},
-    selectedMemberId: ''
+    newMember: {}
   },
   methods: {
     fetchMembers() {
@@ -27,13 +25,6 @@ var membersApp = new Vue({
         console.error(err);
   });
    this.handleReset();
-  },
-  getMemberbyId(id) {
-    fetch('api/members/data_entry.php?memberId='+id)
-    .then(
-      response => response.json())
-    .then(json => {
-      membersApp.fetchedMember = json[0]})
   },
   handleReset() {
     this.newMember = {
