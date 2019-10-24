@@ -41,14 +41,9 @@
         <h2>Assign certificate to member</h2>
           <p> Select member ID </p>
           <select v-model="selectedMemberId" name="memberId" @change="getMemberbyId(selectedMemberId)" >
-<<<<<<< HEAD
-            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }}, {{member.firstName}}</option>
-          </select>
-=======
             <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }} - {{ member.firstName }} {{ member.lastName }}</option>
           </select>
           <br>
->>>>>>> 6dbc1a0aa699315b52f4198109025aeee4aef128
       </div>
 
 
