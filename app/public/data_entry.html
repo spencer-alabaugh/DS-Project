@@ -30,12 +30,13 @@
       </ul>
     </div>
   </nav>
+  <br>
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12">
         <form><button id="button" type="button" class="btn btn-primary" onclick="myFunction()">Add member</button></form>
 
         <form @submit.prevent="handleSubmit">
-          <div class="card mb-3" >
-            <div id="myDIV" class="card-body" style="display:none">
+          <div>
+            <div id="myDIV" class="p-3 mb-2 bg-info text-white" style="display:none">
               <span class="float-right" style="cursor:pointer"></span>
               <h4 class="card-title"> Add New Member</h4>
               <div class="employee-form">
