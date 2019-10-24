@@ -64,6 +64,15 @@
 <div class= "container">
     <div id = "certificationsMemberApp" class="col-sm-12 col-md-12 col-lg-12">
       <h2>All Members: Certifications and Certification Expiration Period</h2>
+      <div class="filter">
+        <select v-model="filter.certName">
+          <option value=''>(all)</option>
+          <option value='AED'>AED</option>
+          <option value='First Aid'>First Aid</option>
+          <option value='CPR'>CPR</option>
+          <option value='EMT'>EMT</option>
+        </select>
+      </div>
       <table id="taskTable" class="table table-sm table-hover">
       <thead class="thead-light">
         <tr>
@@ -75,6 +84,8 @@
         </tr>
       </thead>
       <tbody>
+        <tr v-for="certification in certifications" @click="handleRowClick(certification)"
+        v-show="filter.certName =='' || filter.certName == certification.certificationName">
         <tr v-for="m in certificationsMember">
           <td>{{m.lastName}}</td>
           <td>{{m.firstName}}</td>
