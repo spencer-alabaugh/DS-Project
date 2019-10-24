@@ -27,6 +27,7 @@
         <li class="nav-item">
           <a class="nav-link" href="reports.html">Reports</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="AssignCertificate.html">Assign Certificate</a>
         </li>
@@ -40,28 +41,8 @@
         <h2>Assign certificate to member</h2>
           <p> Select member ID </p>
           <select v-model="selectedMemberId" name="memberId" @change="getMemberbyId(selectedMemberId)" >
-            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }}</option>
+            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }}, {{member.firstName}}</option>
           </select>
-          <br>
-          <table id="taskTable" class="table">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Radio numbers</th>
-              <th scope="col">Station number</th>
-              <th scope="col">Active (yes/no)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{fetchedMember.memberId}}</td>
-              <td>{{fetchedMember.lastName}}</td>
-              <td>{{fetchedMember.radioNumber}}</td>
-              <td>{{fetchedMember.stationNumber}}</td>
-              <td>{{fetchedMember.isActive}}</td>
-          </tbody>
-        </table>
       </div>
 
 
