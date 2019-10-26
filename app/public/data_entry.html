@@ -71,7 +71,7 @@
           </tr>
         </tbody>
       </table>
-      <form><button id="aButton" type="button" class="btn btn-primary" onclick="addFunction()">Add member</button></form>
+      <form><button id="aButton" type="button" class="btn btn-dark" onclick="addFunction()">Add member</button></form>
       <form @submit.prevent="handleSubmit">
         <div class="card mb-3" >
           <div id="myDIV" class="card-body" style="display:none">
@@ -110,8 +110,9 @@
             <input type="text" class="form-control mb-2" placeholder="Email" v-model="employee.email" >
             <input type="text" class="form-control mb-2" placeholder="Gender" v-model="employee.gender" >
             <input type="text" class="form-control mb-2" placeholder="Position" v-model="employee.position" >
-            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
-            <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Member</button></form>
+            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-btn btn-primary">Submit Edits</button></form>
+</br>
+            <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-btn btn-danger">Delete Member</button></form>
           </div>
         </div>
       </div>
@@ -143,7 +144,7 @@
         </tr>
       </tbody>
     </table>
-    <form><button id="ebutton" type="button" class="btn btn-primary" onclick="myFunction()">Add Certificate</button></form>
+    <form><button id="ebutton" type="button" class="btn btn-dark" onclick="myFunction()">Add Certificate</button></form>
     <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div id="certificationDIV" class="card-body" style="display:none">
@@ -172,7 +173,8 @@
         <input type="text" class="form-control mb-3" placeholder="Radio Number" v-model="certificate.experationPeriod" >
         <input type="text" class="form-control mb-3" placeholder="Station Number" v-model="certificate.certifyingAgency" >
         <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
-        <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Member</button></form>
+      </br>
+        <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-danger">Delete Member</button></form>
       </div>
     </div>
   </div>
