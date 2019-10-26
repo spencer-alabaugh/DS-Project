@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" href="reports.html">Reports</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="AssignCertificate.html">Assign Certificate</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -47,7 +50,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="m in memberCertifications">
+          <tr v-for="m in membersCertified">
             <td>{{m.firstName}}</td>
             <td>{{m.lastName}}</td>
             <td>{{m.radioNumber}}</td>
