@@ -25,6 +25,7 @@ var certificationApp = new Vue({
       console.error(err);
 });
  this.handleReset();
+ this.fetchCertifications();
 },
 handleReset() {
   this.newCertification = {

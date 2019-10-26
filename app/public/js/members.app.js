@@ -25,6 +25,7 @@ var membersApp = new Vue({
         console.error(err);
   });
    this.handleReset();
+   this.fetchMembers();
   },
   handleReset() {
     this.newMember = {

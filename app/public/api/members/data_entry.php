@@ -6,7 +6,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 if(isset($_GET['memberId'])) {
   $stmt = $db->prepare('SELECT * FROM Member where memberId = ?');
-  $stmt->execute($_GET['memberId']);
+  $stmt->execute([$_GET['memberId']]);
 
 } else {
   $stmt = $db->prepare('SELECT * FROM Member');
