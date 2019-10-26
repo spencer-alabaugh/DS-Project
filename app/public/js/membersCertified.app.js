@@ -5,7 +5,10 @@ var membersCertifiedApp = new Vue({
     certifications: [],
     memberCertifications: [],
     newMemberCertified: {},
-    membersCertified: []
+    membersCertified: [],
+    filter:{
+      memberId: ''
+    }
   },
   methods: {
     fetchMembers() {

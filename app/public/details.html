@@ -37,6 +37,10 @@
   <div class="container">
       <div id = "membersCertifiedApp">
         <h2>Active Members: Current and Expired Certifications</h2>
+        <select v-model="filter.memberId">
+          <option value="">(all)</option>
+          <option v-for="m in members" v-bind:value="m.memberId">{{ m.firstName }} {{ m.lastName }}</option>
+        </select>
         <table id="taskTable" class="table table-sm table-hover">
         <thead class="thead-light">
           <tr>
@@ -50,14 +54,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="m in membersCertified">
-            <td>{{m.firstName}}</td>
-            <td>{{m.lastName}}</td>
-            <td>{{m.radioNumber}}</td>
-            <td>{{m.stationNumber}}</td>
-            <td>{{m.isActive}}</td>
-            <td>{{m.certificationName}}</td>
-            <td>{{m.expirationDate}}</td>
+          <tr v-for="mc in membersCertified" v-if="filter.memberId=='' || filter.memberId==mc.memberId">
+            <td>{{mc.firstName}}</td>
+            <td>{{mc.lastName}}</td>
+            <td>{{mc.radioNumber}}</td>
+            <td>{{mc.stationNumber}}</td>
+            <td>{{mc.isActive}}</td>
+            <td>{{mc.certificationName}}</td>
+            <td>{{mc.expirationDate}}</td>
           </tr>
         </tbody>
       </table>
@@ -67,6 +71,10 @@
 <div class= "container">
     <div id = "certificationsMemberApp" class="col-sm-12 col-md-12 col-lg-12">
       <h2>All Members: Certifications and Certification Expiration Period</h2>
+      <select v-model="filter.certificationId">
+        <option value="">(all)</option>
+        <option v-for="c in certifications" v-bind:value="c.certificationId">{{ c.certificationName }}</option>
+      </select>
       <table id="taskTable" class="table table-sm table-hover">
       <thead class="thead-light">
         <tr>
@@ -78,7 +86,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="m in certificationsMember">
+        <tr v-for="m in certificationsMember" v-if="filter.certificationId=='' || filter.certificationId==m.certificationId">
           <td>{{m.lastName}}</td>
           <td>{{m.firstName}}</td>
           <td>{{m.certificationName}}</td>

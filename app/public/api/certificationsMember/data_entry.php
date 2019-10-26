@@ -6,7 +6,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // if (isset($_GET['guid'])) {
   $stmt = $db->prepare(
-    'SELECT m.lastName, m.firstName, c.certificationName, c.experationPeriod, m.isActive
+    'SELECT m.lastName, m.firstName, c.certificationName, c.experationPeriod, m.isActive, c.certificationId
 	FROM Member as m, Certification as c, MemberCertified as mc
 	WHERE m.memberId = mc.memberId AND c.certificationId = mc.certificationId
     ORDER BY c.certificationName'
