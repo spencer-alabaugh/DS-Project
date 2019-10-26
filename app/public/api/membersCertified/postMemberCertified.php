@@ -9,13 +9,13 @@ $db = DbConnection::getConnection();
 $stmt = $db->prepare(
   'INSERT INTO MemberCertified
     (memberId, certificationId, certifiedDate, expirationDate)
-  VALUES (?,?,?,?)'
+  VALUES (?,?,?, ?)'
 );
 $stmt->execute([
   $_POST['memberId'],
   $_POST['certificationId'],
   $_POST['certifiedDate'],
-  $_POST['expirationDate'],
+  $_POST['expirationDate']
 ]);
 
 // TODO: Error checking?!

@@ -9,7 +9,7 @@ CREATE TABLE MemberCertified (
     FOREIGN KEY (certificationId) REFERENCES Certification(certificationId)
 );
 
-------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 
 use innodb;
 

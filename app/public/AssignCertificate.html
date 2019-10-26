@@ -36,37 +36,30 @@
   </nav>
 
   <div class="container">
-    <form @submit.prevent="handleSubmit">
     <div class="row">
-      <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12" >
-        <h2>Assign certificate to member</h2>
+      <div id="membersCertifiedApp" class="col-sm-12 col-md-12 col-lg-12" >
+          <h2>Assign certificate to member</h2>
           <p> Select member ID </p>
-          <select name="memberId" >
-            <option v-for="member in members">{{ member.memberId }} - {{ member.firstName }} {{ member.lastName }}</option>
+          <select v-model="newMemberCertified.memberId" >
+            <option v-for="member in members" v-bind:value="member.memberId">{{ member.memberId }} - {{ member.firstName }} {{ member.lastName }}</option>
           </select>
           <br>
+          <p> Select certification name </p>
+          <select v-model="newMemberCertified.certificationId" >
+            <option  v-for="certification in certifications" v-bind:value="certification.certificationId" >{{ certification.certificationId }} - {{ certification.certificationName }}</option>
+          </select>
+          <br>
+          <p>Select certification start date</p>
+          <input v-model="newMemberCertified.certifiedDate" type="date">
+          <button type="submit" @click="assignCertificate()" class="btn btn-primary">Certify Member</button>
       </div>
-
-      <div id="certificationApp" class="col-sm-12 col-md-12 col-lg-12" >
-        <p> Select certification name </p>
-        <select name="certificationName">
-          <option  v-for="certification in certifications" >{{ certification.certificationId }} - {{ certification.certificationName }}</option>
-        </select>
+      <div class="footer">
+        Oconee County Fire Rescue|Oconee County, GA
       </div>
-      <br>
-      <div>
-        <p>Select certification start date</p>
-        <input v-model="" type="date" name="certificationStartDate" >
-      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/membersCertified.app.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Certify Member</button>
-</form>
-</div>
-<div class="footer">
-  Oconee County Fire Rescue|Oconee County, GA
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/members.app.js"></script>
-<script src="js/certifications.app.js"></script>
 </body>
 </html>
