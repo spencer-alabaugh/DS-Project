@@ -11,6 +11,7 @@ $stmt = $db->prepare(
     (firstName, lastName, radioNumber, stationNumber, isActive, address, email, gender, position)
   VALUES (?,?,?,?,?,?,?,?,?)'
 );
+
 $stmt->execute([
   $_POST['firstName'],
   $_POST['lastName'],
@@ -23,8 +24,7 @@ $stmt->execute([
   $_POST['position'],
 ]);
 
-// TODO: Error checking?!
-
 // Step 4: Output
+//
 header('HTTP/1.1 303 See Other');
 header('Location: ../members/');
