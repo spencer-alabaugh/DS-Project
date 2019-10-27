@@ -48,12 +48,9 @@
     <h2>Expired Certifications</h2>
 
     <div class="filter">
-      <select v-model="filter.certName">
-        <option value=''>(all)</option>
-        <option value='AED'>AED</option>
-        <option value='First Aid'>First Aid</option>
-        <option value='CPR'>CPR</option>
-        <option value='EMT'>EMT</option>
+      <select v-model="filter.certificationId">
+        <option value="">(all)</option>
+        <option v-for="c in distinctCertifications" v-bind:value="c.certificationId">{{ c.certificationName }}</option>
       </select>
     </div>
     <table class="table table-sm table-hover table-bordered ">
@@ -68,7 +65,7 @@
 
       <tbody>
         <tr v-for="certification in certifications" @click="handleRowClick(certification)"
-        v-show="filter.certName =='' || filter.certName == certification.certificationName">
+        v-show="filter.certificationId =='' || filter.certificationId == certification.certificationId">
           <td>{{certification.firstName}}</td>
           <td>{{certification.lastName}}</td>
           <td>{{certification.certificationName}}</td>
@@ -82,6 +79,19 @@
 
 <div id="membersApp" class="container">
       <h2>Member's List</h2>
+<div class="filter">Station Number:
+        <select v-model="filter.stationNumber">
+          <option value=""></option>
+          <option v-for="member in members" v-bind:value="member.stationNumber">{{member.stationNumber }}</option>
+        </select>
+      </div>
+      <div class="filter">Radio Number:
+        <select v-model="filter1.radioNumber">
+          <option value=""></option>
+          <option v-for="member in members" v-bind:value="member.radioNumber">{{member.radioNumber }}</option>
+        </select>
+      </div>
+
       <table class="table table-sm table-hover table-bordered ">
       <thead class="thead-dark">
           <th>First Name</th>
@@ -91,7 +101,7 @@
           <th>Email Address</th>
         </thead>
         <tbody>
-          <tr v-for="member in members">
+          <tr v-for="member in members" v-show="(filter.stationNumber =='' && filter1.radioNumber=='') || (filter.stationNumber == member.stationNumber && filter1.radioNumber == member.radioNumber) || (filter1.radioNumber == member.radioNumber && filter.stationNumber=='') || (filter1.radioNumber == '' && filter.stationNumber== member.stationNumber)">
             <td>{{member.firstName}}</td>
             <td>{{member.lastName}}</td>
             <td>{{member.stationNumber}}</td>
