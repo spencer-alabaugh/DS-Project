@@ -34,11 +34,12 @@
     </div>
   </nav>
 
+
 <div>
       <div id="membersApp" class="col-sm-12 col-md-12 col-lg-12">
         <h2>Members</h2>
-        <table id="taskTable" class="table">
-        <thead class="thead-light">
+        <table id="taskTable" class="table table-bordered table-sm table-hover">
+        <thead class="thead-dark">
           <tr>
             <th scope="col">Member ID</th>
             <th scope="col">First Name</th>
@@ -71,7 +72,7 @@
           </tr>
         </tbody>
       </table>
-      <form><button id="aButton" type="button" class="btn btn-primary" onclick="addFunction()">Add member</button></form>
+      <form><button id="aButton" type="button" class="btn btn-dark" onclick="addFunction()">Add member</button></form>
       <form @submit.prevent="handleSubmit">
         <div class="card mb-3" >
           <div id="myDIV" class="card-body" style="display:none">
@@ -95,11 +96,18 @@
   </div>
 </div>
 
-    <div id="edit_membersApp">
+<div>
+<div class="col-sm-12 col-md-12 col-lg-12"><form><button id="emButton" type="button" class="btn btn-primary " onclick="editExistingFunction()">Edit Existing Members
+</button></form></div>
+    <div id="edit_membersApp" class="col-sm-12 col-md-12 col-lg-12" style="display:none">
+
+      <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div class="card-body">
           <span class="float-right" style="cursor:pointer"></span>
           <h4 class="card-title">Edit Member</h4>
+          <h6 class="card-subtitle"> Click on a member in the table above to edit</h5>
+          </br>
           <div>
             <label>First Name</label><input type="text" class="form-control mb-2" placeholder="First Name" v-model="employee.firstName" >
             <input type="text" class="form-control mb-2" placeholder="Last Name" v-model="employee.lastName" >
@@ -110,19 +118,20 @@
             <input type="text" class="form-control mb-2" placeholder="Email" v-model="employee.email" >
             <input type="text" class="form-control mb-2" placeholder="Gender" v-model="employee.gender" >
             <input type="text" class="form-control mb-2" placeholder="Position" v-model="employee.position" >
-            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
-            <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Member</button></form>
+            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-btn btn-primary">Submit Edits</button></form>
+            <br></br>
+            <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-btn btn-danger">Delete Member</button></form>
           </div>
         </div>
       </div>
   </div>
-
-
+</div>
+</body>
     <div>
     <div id = certificationApp class="col-sm-12 col-md-12 col-lg-12">
       <h2>Certifications</h2>
-      <table id="taskTable" class="table">
-      <thead class="thead-light">
+      <table id="taskTable" class="table table-bordered table-sm table-hover">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Certification</th>
           <th scope="col">Certifying agency</th>
@@ -143,7 +152,7 @@
         </tr>
       </tbody>
     </table>
-    <form><button id="ebutton" type="button" class="btn btn-primary" onclick="myFunction()">Add Certificate</button></form>
+    <form><button id="ebutton" type="button" class="btn btn-dark" onclick="myFunction()">Add Certificate</button></form>
     <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div id="certificationDIV" class="card-body" style="display:none">
@@ -166,13 +175,15 @@
 </div>
 </div>
 
+<div class="col-sm-12 col-md-12 col-lg-12">
 <div id="edit_certificateApp">
-  <div class="card mb-4" >
+<form><button id="ecButton" type="button" class="btn btn-primary " onclick="editExistingCertFunction()">Edit Existing Certifications</button></form></div>
+  <div id= "eCert" class="card mb-4" style=display:none>
     <div class="card-body">
       <span class="float-left" style="cursor:pointer"></span>
       <h4 class="card-title">Edit Certification</h4>
       <div>
-        <label>Entry</label><input type="text" class="form-control mb-3" placeholder="First Name" v-model="certificate.certificationId" >
+        <label>Click on a Certification Above to Edit it</label><input type="text" class="form-control mb-3" placeholder="First Name" v-model="certificate.certificationId" >
         <input type="text" class="form-control mb-3" placeholder="Certification Id" v-model="certificate.certificationName" >
         <input type="text" class="form-control mb-3" placeholder="Radio Number" v-model="certificate.experationPeriod" >
         <input type="text" class="form-control mb-3" placeholder="Station Number" v-model="certificate.certifyingAgency" >
