@@ -53,6 +53,14 @@ var edit_certificateApp = new Vue({
   }
 })
 
+function editExistingCertFunction() {
+  var x = document.getElementById("eCert");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 /* function myFunction() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
