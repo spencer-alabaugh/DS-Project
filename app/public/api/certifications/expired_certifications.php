@@ -6,7 +6,7 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('SELECT m.firstName, m.lastName, c.certificationName, c.certifyingAgency, mc.expirationDate
+$stmt = $db->prepare('SELECT c.certificationId, m.firstName, m.lastName, c.certificationName, c.certifyingAgency, mc.expirationDate
  FROM Certification as c, Member as m, MemberCertified as mc
  WHERE c.certificationId = mc.certificationId and m.memberId = mc.memberId and mc.expirationDate < NOW()
  ORDER BY m.memberId;');

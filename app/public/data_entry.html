@@ -87,7 +87,7 @@
               <input type="text" class="form-control mb-2" placeholder="Email" v-model="newMember.email" >
               <input type="text" class="form-control mb-2" placeholder="Gender" v-model="newMember.gender" >
               <input type="text" class="form-control mb-2" placeholder="Position" v-model="newMember.position" >
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-dark">Submit</button>
             </form>
   </div>
 </div>
@@ -96,7 +96,7 @@
 </div>
 <div>
   <div class="col-sm-12 col-md-12 col-lg-12"><form><button id="emButton" type="button" class="btn btn-primary" onclick="editExistingFunction()">Edit Existing Members</button></form></div>
-    <div id="edit_membersApp" class="cik-sm-12 col-md-12 col-lg-12" style=display:none>
+    <div id="edit_membersApp" class="col-sm-12 col-md-12 col-lg-12" style=display:none>
     <!-- style=display:none"> -->
     <form @submit.prevent="handleSubmit">
 
@@ -116,7 +116,7 @@
             <input type="text" class="form-control mb-2" placeholder="Email" v-model="employee.email" >
             <input type="text" class="form-control mb-2" placeholder="Gender" v-model="employee.gender" >
             <input type="text" class="form-control mb-2" placeholder="Position" v-model="employee.position" >
-            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
+            <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-dark">Submit Edits</button></form>
             <br></br>
             <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-danger">Delete Member</button></form>
           </div>
@@ -150,29 +150,24 @@
         </tr>
       </tbody>
     </table>
-    <form><button id="ebutton" type="button" class="btn btn-primary" onclick="myFunction()">Add Certificate</button></form>
+    <form><button id="ebutton" type="button" class="btn btn-dark" onclick="myFunction()">Add Certificate</button></form>
     <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div id="certificationDIV" class="card-body" style="display:none">
-          <span class="float-righ
-
-
-
-
-          t" style="cursor:pointer"></span>
+          <span class="float-right" style="cursor:pointer"></span>
           <h4 class="card-title"> Add New Certificate</h4>
           <div class="employee-form">
             <input type="text" class="form-control mb-2" placeholder="Certification Name" v-model="newCertification.certificationName" >
             <input type="text" class="form-control mb-2" placeholder="Expiration Period" v-model="newCertification.experationPeriod" >
             <input type="text" class="form-control mb-2" placeholder="Certifying Agency" v-model="newCertification.certifyingAgency" >
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
     </form>
   </div>
 </div>
 </div>
 </div>
 
-<div><form><button id="ecButton" type="button" class="btn btn-dark" onclick="editExistingCertFunction()">Edit Existing Certificates</button></form></div>
+<div class="col-sm-12 col-md-12 col-lg-12"><form><button id="ecButton" type="button" class="btn btn-primary" onclick="editExistingCertFunction()">Edit Existing Certificates</button></form></div>
 <div id="edit_certificateApp">
   <div id="eCert" class="card mb-4" style=display:none>
   <div class="card mb-4" >
@@ -185,7 +180,7 @@
         <input type="text" class="form-control mb-3" placeholder="Certification Name" v-model="certificate.certificationName" >
         <input type="text" class="form-control mb-3" placeholder="Expiration Period" v-model="certificate.experationPeriod" >
         <input type="text" class="form-control mb-3" placeholder="Certifying Agency" v-model="certificate.certifyingAgency" >
-        <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
+        <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-dark">Submit Edits</button></form>
     <br>  </br>
         <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-danger">Delete Certificate</button></form>
       </div>

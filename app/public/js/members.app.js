@@ -2,9 +2,28 @@ var membersApp = new Vue({
   el: '#membersApp',
   data: {
     members:  [],
-    newMember: {}
+    newMember: {},
+    StationNumbers:[],
+    RadioNumbers:[],
+    filter: {
+      stationNumber: ''
+    },
+    filter1: {
+      radioNumber: ''
+    }
+
   },
   methods: {
+    fetchRadioNumber() {
+      fetch('api/members/get_RadioNumbers.php')
+      .then(response => response.json())
+      .then(json => {membersApp.RadioNumbers = json})
+    },
+    fetchStationNumber() {
+      fetch('api/members/get_stations.php')
+      .then(response => response.json())
+      .then(json => {membersApp.StationNumbers = json})
+    },
     fetchMembers() {
       fetch('api/members/data_entry.php')
       .then(response => response.json())
@@ -43,6 +62,7 @@ var membersApp = new Vue({
   created() {
     this.fetchMembers();
      this.handleReset();
+     this.fetchStationNumber();
   }
 })
 
