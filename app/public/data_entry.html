@@ -28,7 +28,7 @@
           <a class="nav-link" href="reports.html">Reports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="AssignCertificate.html">Reports</a>
+          <a class="nav-link" href="AssignCertificate.html">Assign Certificate</a>
         </li>
       </ul>
     </div>
@@ -80,7 +80,7 @@
             <h4 class="card-title"> Add New Member</h4>
             <div>
               <input type="text" class="form-control mb-2" placeholder="First Name" v-model="newMember.firstName" >
-              <input type="text" class="form-control mb-2" placeholder="Last Name" v-model="newMember.lastName" >
+              <input type="text" class="form-controls mb-2" placeholder="Last Name" v-model="newMember.lastName" >
               <input type="text" class="form-control mb-2" placeholder="Radio Number" v-model="newMember.radioNumber" >
               <input type="text" class="form-control mb-2" placeholder="Station Number" v-model="newMember.stationNumber" >
               <input type="text" class="form-control mb-2" placeholder="Active?" v-model="newMember.isActive" >
@@ -89,7 +89,7 @@
               <input type="text" class="form-control mb-2" placeholder="Gender" v-model="newMember.gender" >
               <input type="text" class="form-control mb-2" placeholder="Position" v-model="newMember.position" >
               <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            </form>
   </div>
 </div>
 </div>
@@ -156,7 +156,12 @@
     <form @submit.prevent="handleSubmit">
       <div class="card mb-3" >
         <div id="certificationDIV" class="card-body" style="display:none">
-          <span class="float-right" style="cursor:pointer"></span>
+          <span class="float-righ
+
+
+
+
+          t" style="cursor:pointer"></span>
           <h4 class="card-title"> Add New Certificate</h4>
           <div class="employee-form">
             <input type="text" class="form-control mb-2" placeholder="Certification Name" v-model="newCertification.certificationName" >
@@ -183,8 +188,7 @@
         <input type="text" class="form-control mb-3" placeholder="Radio Number" v-model="certificate.experationPeriod" >
         <input type="text" class="form-control mb-3" placeholder="Station Number" v-model="certificate.certifyingAgency" >
         <form @submit.prevent="handleSubmit"><button type="submit" class="btn btn-primary">Submit Edits</button></form>
-      </br>
-        <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-danger">Delete Certificate</button></form>
+        <form @submit.prevent="handleDelete"><button type="submit" class="btn btn-primary">Delete Certificate</button></form>
       </div>
     </div>
   </div>
